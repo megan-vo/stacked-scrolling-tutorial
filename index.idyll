@@ -6,9 +6,9 @@
       subtitle:"A walkthrough"
       author:"Megan Vo"/]
 
-    [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] scroll component is a useful way to incorporate
-    more narrative structure into an article. This tutorial will focus on how to incorporate **multiple** scroll components in one Idyll
-    document to further aid your scrollytelling needs. If you are not familiar with the scroller component, take a peek at this 
+    [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] Scroller component is a useful way to incorporate
+    more narrative structure into an article. This tutorial will focus on how to incorporate **multiple** Scroller components in one Idyll
+    document to further aid your scrollytelling needs. If you are not familiar with the Idyll's Scrollers, take a peek at this 
     [a href:"https://idyll-lang.org/gallery/scaffolding-interactives" target:"_blank"]tutorial[/a] first. Otherwise, let's get 
     started!
 
@@ -17,13 +17,13 @@
     ### What are Stacked Scrollers?
     Instead of one Scroller component per document, stacking Scrollers simply translates to 
     declaring multiple Scroller components one after another. This way, each Scroller can be thought of as its own 
-    section with **steps** that can only be controlled by the parent Scroller.
+    section with **steps** that can only be controlled by their corresponding parent Scroller.
 
     [br/]
 
     ### Why Stack?
     Stacking allows us to easily transition between the different **graphics** of each component. Take for example, 
-    the smooth transitions between the graphics and sections of the article below.
+    the smooth transitions between the graphics of the article below.
 
     [figure]
       [img src:"static/images/fugazi.gif" class:"gif" /]
@@ -32,43 +32,53 @@
         by Matthew Conlen. 
       [/figcaption]
     [/figure]
-    Stacking allows the graphics of each Scroller to slide up and replace the previous 
-    graphic on the screen, and quite easily too. Since each Scroller component only allows 
+    It allows the graphics of each Scroller to slide up and replace the previous 
+    graphic on the screen -- and quite easily too. Since each Scroller component only allows 
     for one graphic, switching between graphics is a bit more difficult and 
     clunky when using just one Scroller.
     
-      
+    // Show gif comparison here  
 
-      -- Show gif example between two[br/]
-      - To achieve this -> essentially just have to declare scroller components one after the other 
-      with the particular graphic we want to change to.
+    Perhaps one of the biggest perks is that stacking lets us include multiple animated graphics because each Scroller
+    controls their **own** set of steps. This also gives us greater customizeability
+    in terms of style and functionality since every Scroller has a corresponding **id**.
+
+    [br/]
+    ### Let's Build Something
+    To get acquainted with stacked scrolling, below is a short example with 
+    code snippets afterward. 
+    For this scrolly example, we only made changes to the **styles.css** and **index.idyll** files.
 
 
-    [p]
-    **Step by step example?**[br/]
-    - Includes incorporating components into folder, code along the way[br/]
-    - Images or animated svgs better?
-    [/p]
-[br/]
-[br/]
-[br/]
-[br/]
+    [img src:"static/images/arrow.svg" class:"arrow"/]
+
 
 [var name:"barStep" value:0 /]
 
 
 [Scroller currentStep:barStep]
+  
+    [Graphic class:"bar"]
+        [img src:"static/images/bar.png"
+        class:`barStep < 1 ? "pic" : "pic rotate" + barStep `/]
+    [/Graphic]
 
-  [Graphic class:"bar"]
-      [img src:"static/images/bar.png"
-      class:`barStep < 1 ? "pic" : "pic rotate"`/]
-  [/Graphic]
 
-  [Step]
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Commodo elit at imperdiet dui accumsan. Mi quis hendrerit dolor magna eget est. Id diam maecenas ultricies mi eget mauris. Nisl purus in mollis nunc sed id. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Ornare suspendisse sed nisi lacus sed. Amet mauris commodo quis imperdiet.
+  [Step id:"firstStep"]
+    The bar on the right belongs to this first Scroller component. Watch how it rotates 
+    as you scroll to the next step.
   [/Step]
   [Step]
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Commodo elit at imperdiet dui accumsan. Mi quis hendrerit dolor magna eget est. Id diam maecenas ultricies mi eget mauris. Nisl purus in mollis nunc sed id. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Ornare suspendisse sed nisi lacus sed. Amet mauris commodo quis imperdiet.
+    [p]We've reached the next step! You can animate a graphic within a particular Scroller based on what step is entered.[/p]
+    You can keep track of the step you are on for a particular scroller by assigning a variable to the 
+    **currentStep** prop of the component.
+  [/Step]
+
+  [Step]
+    [p]But let's say you want to include another graphic. We could stay here on this Scroller but it would 
+    get a little messy... [/p]
+
+    Sounds like it's time to **stack**!
   [/Step]
 [/Scroller]
 
@@ -78,10 +88,21 @@
       [img src:"static/images/circle.png"
       class:`circleStep < 1 ? "pic" : "pic enlarge"`/]
   [/Graphic]
-  [Step]
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Commodo elit at imperdiet dui accumsan. Mi quis hendrerit dolor magna eget est. Id diam maecenas ultricies mi eget mauris. Nisl purus in mollis nunc sed id. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Ornare suspendisse sed nisi lacus sed. Amet mauris commodo quis imperdiet.
+  [Step id:"secondStep"]
+    You've reached the second Scroller! Here we've changed the graphic as well as the 
+    **CSS** of the new Scroller. Watch for a different animation as you enter 
+    this one's next step.
   [/Step]
   [Step]
-    Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Dui vivamus arcu felis bibendum ut tristique et egestas quis. Risus sed vulputate odio ut enim blandit volutpat maecenas. Rhoncus dolor purus non enim. Lacinia at quis risus sed vulputate odio ut. Donec ultrices tincidunt arcu non sodales neque. Id semper risus in hendrerit gravida rutrum. Eget est lorem ipsum dolor. Risus pretium quam vulputate dignissim suspendisse in est ante in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Ultrices vitae auctor eu augue ut lectus arcu bibendum. Porttitor lacus luctus accumsan tortor posuere ac. Tristique senectus et netus et malesuada fames. Sit amet luctus venenatis lectus magna fringilla. Tempor nec feugiat nisl pretium fusce id velit. Vestibulum morbi blandit cursus risus. Viverra nam libero justo laoreet sit amet.
+    [p]
+    Because each Scroller has a unique **id**, we can leverage that to create a diverse set 
+    of customizeable animated graphics. The id format is #idyll-scroll-#, with the first scroller 
+    starting at 0.  [/p]
+    
+    Since this is the second Scroller, we're currently working with #idyll-scroll-1.
   [/Step]
 [/Scroller]
+
+You'll need the 
+    [a href:"https://github.com/idyll-lang/idyll/tree/master/packages/idyll-components/src" target:"_blank"]scroller.js and text-container.js components[/a].
+    If you want, you can use the default [a href:"https://github.com/megan-vo/stacked-scrolling-tutorial/tree/master/static/images" target:"_blank"]bar and circle images[/a] as well.

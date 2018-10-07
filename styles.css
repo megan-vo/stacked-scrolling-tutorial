@@ -10,9 +10,22 @@
   }
 }
 
+.jump {
+  scroll-behavior: smooth;
+}
+
 .gif {
   max-width: 28vw;
   margin: 3vh 0 0 5vw;
+}
+
+#firstStep, #secondStep {
+  margin: 0 auto;
+}
+
+.arrow {
+  transform: scale(0.5);
+  margin-left: 20vw;
 }
 
 a {
@@ -43,13 +56,13 @@ figcaption {
   height: auto;
   max-height: none;
   margin: 0 0 0 70vw;
-  transition: 180ms linear all;
+  transition: 200ms linear all;
   background: transparent;
 }
 
-.rotate {
+.rotate1, rotate2 {
   transform: rotate(90deg);
-  transition: 180ms linear all;
+  transition: 200ms linear all;
 }
 
 .enlarge {
