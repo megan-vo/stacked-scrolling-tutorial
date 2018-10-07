@@ -6,28 +6,43 @@
       subtitle:"A walkthrough"
       author:"Megan Vo"/]
 
-    Outline:
+    [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] scroll component is a useful way to incorporate
+    more narrative structure into an article. This tutorial will focus on how to incorporate **multiple** scroll components in one Idyll
+    document to further aid your scrollytelling needs. If you are not familiar with the scroller component, take a peek at this 
+    [a href:"https://idyll-lang.org/gallery/scaffolding-interactives" target:"_blank"]tutorial[/a] first. Otherwise, let's get 
+    started!
+
     [br/]
-    [p]
-    **Intro**[br/]
-      Brief intro: [br/]
-                  - Idyll's scroll component useful for structuring narratives etc.[br/]
-                   - An Idyll post on Scaffolding Interactives if not familiar: link[br/]
-                   - Not restricted to just one Scroller component -> can use multiple for
-                   different viewing experience
-    [/p]
+    
+    ### What are Stacked Scrollers?
+    Instead of one Scroller component per document, stacking Scrollers simply translates to 
+    declaring multiple Scroller components one after another. This way, each Scroller can be thought of as its own 
+    section with **steps** that can only be controlled by the parent Scroller.
+
     [br/]
-    [p]
-    **Purpose/What it is**[br/]
-      - As mentioned before, smoother transitions between different images and/or
-      fixed SVG animation graphics (marks different sections)[br/]
-      - Show DIY article example as GIF[br/]
-      - Compared to regular scrolling and switching graphics, takes a lot less steps[br/]
-      - What's the difference?[br/]
+
+    ### Why Stack?
+    Stacking allows us to easily transition between the different **graphics** of each component. Take for example, 
+    the smooth transitions between the graphics and sections of the article below.
+
+    [figure]
+      [img src:"static/images/fugazi.gif" class:"gif" /]
+      [figcaption]
+        [a href:"https://idyll-lang.org/gallery/the-d-i-y-data-of-fugazi" target:"_blank"]The D-I-Y Data of Fugazi[/a]
+        by Matthew Conlen. 
+      [/figcaption]
+    [/figure]
+    Stacking allows the graphics of each Scroller to slide up and replace the previous 
+    graphic on the screen, and quite easily too. Since each Scroller component only allows 
+    for one graphic, switching between graphics is a bit more difficult and 
+    clunky when using just one Scroller.
+    
+      
+
       -- Show gif example between two[br/]
       - To achieve this -> essentially just have to declare scroller components one after the other 
       with the particular graphic we want to change to.
-    [/p]
+
 
     [p]
     **Step by step example?**[br/]
@@ -50,9 +65,7 @@
   [/Graphic]
 
   [Step]
-    [Header
-      title:"Stack Scroller Test"
-      author:"Megan Vo"/]
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Commodo elit at imperdiet dui accumsan. Mi quis hendrerit dolor magna eget est. Id diam maecenas ultricies mi eget mauris. Nisl purus in mollis nunc sed id. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Ornare suspendisse sed nisi lacus sed. Amet mauris commodo quis imperdiet.
   [/Step]
   [Step]
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Commodo elit at imperdiet dui accumsan. Mi quis hendrerit dolor magna eget est. Id diam maecenas ultricies mi eget mauris. Nisl purus in mollis nunc sed id. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Ornare suspendisse sed nisi lacus sed. Amet mauris commodo quis imperdiet.

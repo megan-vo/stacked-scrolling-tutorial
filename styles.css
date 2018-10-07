@@ -10,6 +10,23 @@
   }
 }
 
+.gif {
+  max-width: 28vw;
+  margin: 3vh 0 0 5vw;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+figcaption {
+  max-width: 30vw;
+  margin: 0 0 3vh 5vw;
+  text-align: center;
+  font-size: 0.8em;
+}
+
 .idyll-root {
   box-sizing: border-box;
   margin: 0 0;
