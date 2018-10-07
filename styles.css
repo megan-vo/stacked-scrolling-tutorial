@@ -1,0 +1,58 @@
+
+.d3-component svg {
+  background: #ddd;
+  max-height: 300px;
+}
+
+@media all and (max-width: 1000px) {
+  .d3-component svg {
+    max-height: 200px;
+  }
+}
+
+.idyll-root {
+  box-sizing: border-box;
+  margin: 0 0;
+  padding: 0;
+  margin-bottom: 60px;
+}
+
+.idyll-scroll {
+  margin-top: 0; 
+}
+
+.pic {
+  width: 25vw;
+  height: auto;
+  max-height: none;
+  margin: 0 0 0 70vw;
+  transition: 180ms linear all;
+  background: transparent;
+}
+
+.rotate {
+  transform: rotate(90deg);
+  transition: 180ms linear all;
+}
+
+.enlarge {
+  transform: scale(2);
+  transition: 300ms linear all;
+}
+
+#idyll-scroll-0 .idyll-scroll-graphic {
+  background: lightgray;
+}
+
+#idyll-scroll-1 .idyll-scroll-graphic {
+  background: #5BAFC1;
+}
+
+.idyll-scroll-text {
+  padding: 10vh 0;
+}
+
+.idyll-scroll-text .idyll-step {
+  max-width: 40vw;
+}
+

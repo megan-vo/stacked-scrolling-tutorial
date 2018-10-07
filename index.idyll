@@ -1,0 +1,74 @@
+[meta title:"Stack Scroll" description:"Tutorial on Stacked Scrolling" /]
+
+
+[Header
+      title:"Smooth Narrative Transitions with Stacked Scrollers"
+      subtitle:"A walkthrough"
+      author:"Megan Vo"/]
+
+    Outline:
+    [br/]
+    [p]
+    **Intro**[br/]
+      Brief intro: [br/]
+                  - Idyll's scroll component useful for structuring narratives etc.[br/]
+                   - An Idyll post on Scaffolding Interactives if not familiar: link[br/]
+                   - Not restricted to just one Scroller component -> can use multiple for
+                   different viewing experience
+    [/p]
+    [br/]
+    [p]
+    **Purpose/What it is**[br/]
+      - As mentioned before, smoother transitions between different images and/or
+      fixed SVG animation graphics (marks different sections)[br/]
+      - Show DIY article example as GIF[br/]
+      - Compared to regular scrolling and switching graphics, takes a lot less steps[br/]
+      - What's the difference?[br/]
+      -- Show gif example between two[br/]
+      - To achieve this -> essentially just have to declare scroller components one after the other 
+      with the particular graphic we want to change to.
+    [/p]
+
+    [p]
+    **Step by step example?**[br/]
+    - Includes incorporating components into folder, code along the way[br/]
+    - Images or animated svgs better?
+    [/p]
+[br/]
+[br/]
+[br/]
+[br/]
+
+[var name:"barStep" value:0 /]
+
+
+[Scroller currentStep:barStep]
+
+  [Graphic class:"bar"]
+      [img src:"static/images/bar.png"
+      class:`barStep < 1 ? "pic" : "pic rotate"`/]
+  [/Graphic]
+
+  [Step]
+    [Header
+      title:"Stack Scroller Test"
+      author:"Megan Vo"/]
+  [/Step]
+  [Step]
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Commodo elit at imperdiet dui accumsan. Mi quis hendrerit dolor magna eget est. Id diam maecenas ultricies mi eget mauris. Nisl purus in mollis nunc sed id. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Ornare suspendisse sed nisi lacus sed. Amet mauris commodo quis imperdiet.
+  [/Step]
+[/Scroller]
+
+[var name:"circleStep" value:0/]
+[Scroller currentStep:circleStep]
+  [Graphic]
+      [img src:"static/images/circle.png"
+      class:`circleStep < 1 ? "pic" : "pic enlarge"`/]
+  [/Graphic]
+  [Step]
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. Commodo elit at imperdiet dui accumsan. Mi quis hendrerit dolor magna eget est. Id diam maecenas ultricies mi eget mauris. Nisl purus in mollis nunc sed id. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Ornare suspendisse sed nisi lacus sed. Amet mauris commodo quis imperdiet.
+  [/Step]
+  [Step]
+    Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Dui vivamus arcu felis bibendum ut tristique et egestas quis. Risus sed vulputate odio ut enim blandit volutpat maecenas. Rhoncus dolor purus non enim. Lacinia at quis risus sed vulputate odio ut. Donec ultrices tincidunt arcu non sodales neque. Id semper risus in hendrerit gravida rutrum. Eget est lorem ipsum dolor. Risus pretium quam vulputate dignissim suspendisse in est ante in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Ultrices vitae auctor eu augue ut lectus arcu bibendum. Porttitor lacus luctus accumsan tortor posuere ac. Tristique senectus et netus et malesuada fames. Sit amet luctus venenatis lectus magna fringilla. Tempor nec feugiat nisl pretium fusce id velit. Vestibulum morbi blandit cursus risus. Viverra nam libero justo laoreet sit amet.
+  [/Step]
+[/Scroller]
