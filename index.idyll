@@ -1,16 +1,15 @@
 [meta title:"Stack Scroll" description:"Tutorial on Stacked Scrolling" /]
 
-// TODO: Add code snippets, change bar.png to svg, get rid of huge gray space, mobile screen size
-// can scroll for some reason
-
 [Header
-      title:"Smooth Narrative Transitions with Stacked Scrollers"
-      subtitle:"A walkthrough"
+      title:"Stacking Scroller Components"
+      subtitle:"Introduction to leveraging multiple Scrollers"
       author:"Megan Vo"/]
+
+[br/]
 
 [div className:"text"]
     [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] Scroller component is a useful way to incorporate
-    more narrative structure into an article. This tutorial will focus on introducing **multiple** Scroller components in one Idyll
+    more narrative structure into an article. This tutorial will focus on introducing [span className:"emphasize"]multiple Scroller components[/span] in one Idyll
     document to further aid your scrollytelling needs. If you are not familiar with the Idyll's Scrollers, take a peek at this 
     [a href:"https://idyll-lang.org/gallery/scaffolding-interactives" target:"_blank"]tutorial[/a] first. Otherwise, let's get 
     started!
@@ -20,12 +19,12 @@
     ### What are Stacked Scrollers?
     Instead of one Scroller component per document, stacking Scrollers simply translates to 
     declaring multiple Scroller components one after another. This way, each Scroller can be thought of as its own 
-    section with **steps** that only it can control.
+    section with steps that only it can control.
 
     [br/]
 
     ### Why Stack?
-    Stacking allows us to easily transition between the different **graphics** of each component. Take for example, 
+    Stacking allows us to easily transition between the different graphics of each component. Take for example, 
     the smooth transitions between the graphics of the article below.
 
     [figure]
@@ -43,15 +42,15 @@
     // Show gif comparison here  
 
     Perhaps one of the biggest perks is that stacking lets us include multiple animated graphics per document because each Scroller
-    controls their **own** set of steps. This also gives us greater customizeability
-    in terms of style and functionality since every Scroller has a corresponding **id**.
+    controls their *own* set of steps. This also gives us greater customizeability
+    in terms of style and functionality since every Scroller has a corresponding [span className:"emphasize"]id[/span].
 
     [br/]
     ### Let's Build Something
     To get acquainted with stacked scrolling, below is a short example of customizing each 
     of the stacked Scroller components. 
-    For this example, we've only made changes to the **styles.css** and **index.idyll** files. 
-    In the **package.json** file, we have switched to the ```layout: centered``` format for this document.
+    For this example, we've only made changes to the [span className:"emphasize"]styles.css[/span] and [span className:"emphasize"]index.idyll[/span] files. 
+    In the [span className:"emphasize"]package.json[/span] file, we have switched to the ```layout: centered``` format for this document.
 
 
     [img src:"static/images/arrow.svg" className:"arrow"/]
@@ -61,19 +60,19 @@
 [Scroller currentStep:barStep]
   
     [Graphic]
-        [img src:"static/images/bar.png"
+        [img src:"static/images/bar.svg"
         className:`barStep == 0 ? "bar" : "bar rotate" + barStep `/]
     [/Graphic]
 
 
   [Step]
-    [p]The bar on the right belongs to this first Scroller component.[/p] 
+    [p]The **bar** on the right belongs to this first Scroller component.[/p] 
     
     Let's first look at how we can animate **within** a Scroller. Watch how it rotates 
     as you move to the next step.
   [/Step]
   [Step]
-    [p]We've reached the next step! You can animate a graphic within a particular Scroller based on what **step** is entered.[/p]
+    [p]We've reached the next step! You can animate a graphic within a particular Scroller based on what step is entered.[/p]
 
     To keep track of the current step you are in, you can assign a variable to the Scroller's
     ```currentStep``` prop and tie it to your graphic:
@@ -83,7 +82,7 @@
 [var name:"barStep" value:0 /]
 [Scroller currentStep:barStep]
   [Graphic]
-    [img src:"static/images/bar.png" 
+    [img src:"static/images/bar.svg" 
         className:`barStep == 0 ? "bar" : 
                 "bar rotate" + barStep `/]
   [/Graphic]
@@ -97,7 +96,7 @@
   [/Step]
 
   [Step]
-     Now we can write some basic transformations in the **style.css** file to reflect the 
+     Now we can write some basic transformations in the [span className:"emphasize"]style.css[/span] file to reflect the 
      ```barStep``` prop updates:
 
     ```
@@ -145,6 +144,7 @@
 [Scroller currentStep:circleStep]
   ...
 [/Scroller]
+
     ```
     
     Now watch for a different animation as you enter 
@@ -152,14 +152,14 @@
   [/Step]
   [Step]
     [p]
-    As mentioned previously, each Scroller has a unique **id** as well.[/p] The id format is ```#idyll-scroll-[num] ``` starting at 0.  
+    As mentioned previously, each Scroller has a unique [span className:"emphasize"]id[/span] as well.[/p] The id format is ```#idyll-scroll-[num] ``` starting at 0.  
     
     Since this is the second Scroller, its id is ```#idyll-scroll-1 ```.
   [/Step]
 
   [Step]
     [p]This comes in handy when you want to change the style for a particular Scroller only.[/p]
-    Here, we've changed this graphic's background color in the **style.css**
+    Here, we've changed this graphic's background color in the [span className:"emphasize"]style.css[/span]
     file: 
 
     ```
@@ -170,12 +170,99 @@
   [/Step]
 
   [Step]
-    [p]And that's pretty much it![/p] Go ahead and scroll down for full code snippets.
+    [p]And that's pretty much it![/p] Go ahead and scroll down for the summary code snippets.
   [/Step]
 [/Scroller]
 
 [br/]
-### Code 
-You'll need the 
+
+[div className:"code"]
+### Snippets
+To use the Scroller, you'll need the 
     [a href:"https://github.com/idyll-lang/idyll/tree/master/packages/idyll-components/src" target:"_blank"]scroller.js and text-container.js components[/a].
     If you want, you can use the default [a href:"https://github.com/megan-vo/stacked-scrolling-tutorial/tree/master/static/images" target:"_blank"]bar and circle images[/a] as well.
+
+```
+
+// First Scroller
+[var name:"barStep" value:0 /]
+[Scroller currentStep:barStep]
+  [Graphic]
+    [img src:"static/images/bar.svg" 
+        className:`barStep == 0 ? "bar" : 
+                "bar rotate" + barStep `/]
+  [/Graphic]
+
+  [Step]
+    ... // Step content here
+  [/Step]
+
+  [Step]
+    ...
+  [/Step]
+[/Scroller]
+
+// Second Scroller
+[var name:"circleStep" value:0 /]
+[Scroller currentStep:circleStep]
+  [Graphic]
+    [img src:"static/images/circle.svg" 
+        className:`circleStep == 0 ? "circle" : 
+                "circle enlarge" + circleStep `/]
+  [/Graphic]
+
+  [Step]
+    ...
+  [/Step]
+  [Step]
+    ..
+  [/Step]
+[/Scroller]
+```
+
+```
+
+/* CSS for scroller portion */
+.bar, .circle {
+  margin-left: 42vw;
+  background: transparent;
+  transition: 400ms linear all;
+}
+
+/* Format the graphics */
+.circle {
+  height: 35vh;
+}
+
+.bar {
+  width: 25vw;
+  height: 10vh;
+}
+
+/* Animations */
+.rotate1 {
+  transform: rotate(90deg);
+}
+
+.rotate2 {
+  transform: rotate(210deg);
+}
+
+.enlarge1 {
+  transform: scale(2);
+}
+
+.enlarge2 {
+  transform: scale(2.2);
+}
+
+/* Change graphic background based on Scroller id */
+#idyll-scroll-0 .idyll-scroll-graphic {
+  background:  #F0F0F0;
+}
+
+#idyll-scroll-1 .idyll-scroll-graphic {
+  background: #5BAFC1;
+}
+```
+[/div]

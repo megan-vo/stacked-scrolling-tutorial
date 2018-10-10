@@ -26,6 +26,7 @@
   margin-right: auto;
 }
 
+/* Some text and pre formatting */
 a {
   color: black;
   text-decoration: underline;
@@ -41,13 +42,44 @@ h1, h2, h3 {
   font-family: Verdana, Geneva, sans-serif;
 }
 
+h1 {
+  font-size: 2.4em;
+}
+
+h2 {
+  font-size: 1.3em;
+  color: #5BAFC1;
+}
+
+.article-header {
+  background-color: rgb(241, 238, 238);
+  padding: 1.3em;
+}
+
+.byline {
+  font-size: 0.9em;
+  background-color: none;
+}
+
 .text p {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.emphasize {
+  background-color: rgb(248, 241, 201);
+  color: black;
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 0.25em;
 }
 
 .idyll-step {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 12px;
+}
+
+.highlight pre, .code pre {
+  height: 50vh;
 }
 
 
@@ -64,6 +96,7 @@ h1, h2, h3 {
   width: 100vw;
 }
 
+/* Move the steps up and shorten them */
 .idyll-scroll-text .idyll-step {
   max-width: 45vw;
   position: relative;
@@ -72,6 +105,7 @@ h1, h2, h3 {
   margin-left: 3vw;
 }
 
+/* Decrease the margin depending on window size for steps */
 @media only screen and (min-width: 600px) {
   .idyll-scroll-text .idyll-root {
     margin-left: 0;
@@ -110,6 +144,7 @@ h1, h2, h3 {
   }
 }
 
+/* Format the graphics */
 .circle {
   height: 35vh;
 }
@@ -119,6 +154,7 @@ h1, h2, h3 {
   height: 10vh;
 }
 
+/* Animations */
 .rotate1 {
   transform: rotate(90deg);
 }
@@ -135,6 +171,7 @@ h1, h2, h3 {
   transform: scale(2.2);
 }
 
+/* Change graphic background based on Scroller id */
 #idyll-scroll-0 .idyll-scroll-graphic {
   background:  #F0F0F0;
 }
