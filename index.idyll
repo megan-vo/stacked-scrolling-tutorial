@@ -7,6 +7,8 @@
 
 [br/]
 
+// TODO: Extra space after last step, make header look more finalized, ending links?
+
 [div className:"text"]
     [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] Scroller component is a useful way to incorporate
     more narrative structure into an article. This tutorial will focus on introducing [span className:"emphasize"]multiple Scroller components[/span] in one Idyll
