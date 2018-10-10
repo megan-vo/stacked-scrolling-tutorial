@@ -2,7 +2,7 @@
 
 [Header
       title:"Stacking Scroller Components"
-      subtitle:"Introduction to leveraging multiple Scrollers"
+      subtitle:"Introduction to leveraging multiple Scrollers in Idyll"
       author:"Megan Vo"
       authorLink:"https://github.com/megan-vo"/]
 [div className:"line"][/div]
@@ -12,7 +12,7 @@
 [div className:"text"]
     [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] Scroller component is a useful way to incorporate
     more narrative structure into an article. This tutorial will focus on introducing [span className:"emphasize"]multiple Scroller components[/span] in one Idyll
-    document to further aid your scrollytelling needs. If you are not familiar with the Idyll's Scrollers, take a peek at this 
+    document to further aid your scrollytelling needs. If you are not familiar with Idyll's Scrollers, take a peek at this 
     [a href:"https://idyll-lang.org/gallery/scaffolding-interactives" target:"_blank"]tutorial[/a] first. Otherwise, let's get 
     started!
 
@@ -51,8 +51,8 @@
     ### Let's Build Something
     To get acquainted with stacked scrolling, below is a short example of customizing each 
     of the stacked Scroller components. 
-    For this example, we've only made changes to the [span className:"emphasize"]styles.css[/span] and [span className:"emphasize"]index.idyll[/span] files. 
-    In the [span className:"emphasize"]package.json[/span] file, we have switched to the ```layout: centered``` format for this document.
+    For this example, we've made changes to the [span className:"emphasize"]styles.css[/span] and [span className:"emphasize"]index.idyll[/span] files. 
+    Also in the [span className:"emphasize"]package.json[/span] file, we have switched to the ```layout: centered``` format.
 
 
     [img src:"static/images/arrow.svg" className:"arrow"/]
@@ -63,7 +63,7 @@
   
     [Graphic]
         [img src:"static/images/bar.svg"
-        className:`barStep == 0 ? "bar" : "bar rotate" + barStep `/]
+        className:`barStep === 0 ? "bar" : "bar rotate" + barStep `/]
     [/Graphic]
 
 
@@ -85,7 +85,7 @@
 [Scroller currentStep:barStep]
   [Graphic]
     [img src:"static/images/bar.svg" 
-        className:`barStep == 0 ? "bar" : 
+        className:`barStep === 0 ? "bar" : 
                 "bar rotate" + barStep `/]
   [/Graphic]
 
@@ -134,7 +134,7 @@
 [Scroller currentStep:circleStep]
   [Graphic]
       [img src:"static/images/circle.svg"
-           className:`circleStep == 0 ? "circle" : "circle enlarge" + circleStep `/]
+           className:`circleStep === 0 ? "circle" : "circle enlarge" + circleStep `/]
   [/Graphic]
   [Step]
     [p]Welcome to the second Scroller! Like the first Scroller, we have kept
@@ -154,7 +154,7 @@
   [/Step]
   [Step]
     [p]
-    As mentioned previously, each Scroller has a unique [span className:"emphasize"]id[/span] as well.[/p] The id format is ```#idyll-scroll-[num] ``` starting at 0.  
+    As mentioned previously, each Scroller has a unique [span className:"emphasize"]id[/span].[/p] The id format is ```#idyll-scroll-[num] ``` starting at 0.  
     
     Since this is the second Scroller, its id is ```#idyll-scroll-1 ```.
   [/Step]
@@ -189,7 +189,7 @@
 [Scroller currentStep:barStep]
   [Graphic]
     [img src:"static/images/bar.svg" 
-        className:`barStep == 0 ? "bar" : 
+        className:`barStep === 0 ? "bar" : 
                 "bar rotate" + barStep `/]
   [/Graphic]
 
@@ -207,7 +207,7 @@
 [Scroller currentStep:circleStep]
   [Graphic]
     [img src:"static/images/circle.svg" 
-        className:`circleStep == 0 ? "circle" : 
+        className:`circleStep === 0 ? "circle" : 
                 "circle enlarge" + circleStep `/]
   [/Graphic]
 
