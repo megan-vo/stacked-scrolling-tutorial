@@ -1,7 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
 /* Formatting text portion for tutorial */
 .gif {
   margin-top: 3vh;
   width: 60vw;
+}
+
+.article-header {
+  margin-top: 15vh;
+  margin-bottom: 30px;
+}
+
+.line {
+  background-color: black;
+  height: 0.10em;
+  margin-bottom: 4vh;
 }
 
 .arrow {
@@ -9,8 +22,8 @@
 }
 
 .idyll-text-container {
-  width: 80vw;
-  max-width: 80vw !important;
+  width: 90vw;
+  max-width: 80vw !important; /* so not restricted to 600px */
 }
 
 /* Center imgs */
@@ -22,14 +35,17 @@
 
 /* Some text and pre formatting */
 a {
-  color: black;
+  color: #5BAFC1;
   text-decoration: underline;
 }
 
 figcaption {
   max-width: 30vw;
   text-align: center;
-  font-size: 0.8em;
+}
+
+figcaption p {
+  font-size: 0.8em !important;
 }
 
 h1, h2, h3 {
@@ -37,22 +53,28 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 2.4em;
+  font-size: 2.5em;
 }
 
 h2 {
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: #5BAFC1;
+}
+
+h3 {
+  font-size: 1.3em;
 }
 
 .byline {
   font-size: 0.9em;
-  background-color: none;
 }
 
-.text p {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+.text p, .idyll-step {
+  font-family: 'Rubik', Verdana, Geneva, sans-serif;
+  font-size: 14px;
 }
+
+
 
 .emphasize {
   background-color: rgb(248, 241, 201);
@@ -62,15 +84,9 @@ h2 {
   padding: 0.25em;
 }
 
-.idyll-step {
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 12px;
-}
-
 .highlight pre, .code pre {
   height: 50vh;
 }
-
 
 .idyll-root {
   box-sizing: border-box;
@@ -90,59 +106,15 @@ h2 {
   max-width: 45vw;
   position: relative;
   top: -150vh;
-  padding: 5vw;
+  padding: 4vw;
 }
 
-/* Decrease the margin depending on window size for steps */
-@media only screen and (min-width: 600px) {
-  .idyll-text-container {
-    width: 50vw;
-  }
-
-  .gif {
-    width: 40vw;
-  }
-}
 
 /* CSS for scroller portion of tutorial to follow along */
 .bar, .circle {
   margin-left: 45vw;
   background: transparent;
   transition: 400ms linear all;
-}
-
-@media only screen and (min-width: 992px) {
-  .bar, .circle {
-    margin-left: 75vw;
-  }
-
-  body, p {
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 25px;
-  }
-
-  pre {
-    font-size: 20px;
-  }
-
-  .idyll-text-container {
-    width: 40vw;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .bar, .circle {
-    margin-left: 68vw;
-  }
-
-
-  .idyll-step {
-    font-size: 14px;
-  }
-
-  .idyll-scroll-text .idyll-step {
-    max-width: 40vw;
-  }
 }
 
 /* Format the graphics */
@@ -174,9 +146,65 @@ h2 {
 
 /* Change graphic background based on Scroller id */
 #idyll-scroll-0 .idyll-scroll-graphic {
-  background:  #F0F0F0;
+  background:  rgb(241, 239, 224);
 }
 
 #idyll-scroll-1 .idyll-scroll-graphic {
   background: #5BAFC1;
 }
+
+/* Decrease the margin depending on window size for steps */
+@media only screen and (min-width: 600px) {
+  .gif {
+    width: 40vw;
+  }
+
+  .idyll-scroll-text .idyll-step {
+    padding: 2vw;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .bar, .circle {
+    margin-left: 68vw;
+  }
+
+  .text p, .idyll-step {
+    font-size: 15px;
+  }
+
+  .idyll-scroll-text .idyll-step {
+    max-width: 40vw;
+  }
+
+  .idyll-text-container {
+    width: 45vw;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .bar, .circle {
+    margin-left: 75vw;
+  }
+
+  .text p, .idyll-step, p {
+    font-size: 25px;
+  }
+
+  pre {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 2.7em;
+  }
+
+  h2 {
+    font-size: 1.7em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+}
+

@@ -3,12 +3,12 @@
 [Header
       title:"Stacking Scroller Components"
       subtitle:"Introduction to leveraging multiple Scrollers"
-      author:"Megan Vo"/]
-
+      author:"Megan Vo"
+      authorLink:"https://github.com/megan-vo"/]
+[div className:"line"][/div]
 [br/]
 
-// TODO: Extra space after last step, make header look more finalized, ending links?
-
+// TODO: Extra space after last step, make header look more finalized
 [div className:"text"]
     [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] Scroller component is a useful way to incorporate
     more narrative structure into an article. This tutorial will focus on introducing [span className:"emphasize"]multiple Scroller components[/span] in one Idyll
@@ -101,13 +101,13 @@
      Now we can write some basic transformations in the [span className:"emphasize"]style.css[/span] file to reflect the 
      ```barStep``` prop updates:
 
-    ```
+    ```css
     .bar {
-      margin-left: 42vw;
-      background: transparent;  
-      width: 25vw;
-      height: 10vh;
-      transition: 400ms linear all;
+  margin-left: 42vw;
+  background: transparent;  
+  width: 25vw;
+  height: 10vh;
+  transition: 400ms linear all;
 }
 
 .rotate1 {
@@ -164,7 +164,7 @@
     Here, we've changed this graphic's background color in the [span className:"emphasize"]style.css[/span]
     file: 
 
-    ```
+    ```css
   #idyll-scroll-1 .idyll-scroll-graphic {
   background: #5BAFC1;
 }
@@ -180,9 +180,7 @@
 
 [div className:"code"]
 ### Snippets
-To use the Scroller, you'll need the 
-    [a href:"https://github.com/idyll-lang/idyll/tree/master/packages/idyll-components/src" target:"_blank"]scroller.js and text-container.js components[/a].
-    If you want, you can use the default [a href:"https://github.com/megan-vo/stacked-scrolling-tutorial/tree/master/static/images" target:"_blank"]bar and circle images[/a] as well.
+    If you want to use the code snippets directly, you can use the default [a href:"https://github.com/megan-vo/stacked-scrolling-tutorial/tree/master/static/images" target:"_blank"]bar and circle images[/a] as well.
 
 ```
 
@@ -222,7 +220,7 @@ To use the Scroller, you'll need the
 [/Scroller]
 ```
 
-```
+```css
 
 /* CSS for scroller portion */
 .bar, .circle {
@@ -268,3 +266,17 @@ To use the Scroller, you'll need the
 }
 ```
 [/div]
+
+[br/]
+### Final Notes
+// Link to docs
+[p]Interested in exploring more? [span className:"emphasize"]Idyll's Docs[/span] has information on all the 
+[a href:"https://idyll-lang.org/docs/components" target:"_blank"]built-in components[/a]
+including the Scroller. If you're looking to get started somewhere, 
+[a href:"https://idyll-lang.org/docs/getting-started" target:"_blank"]this page[/a] in the Docs will 
+help you get set up.[/p]
+
+// Custom components
+Note that you can apply the same Scroller concepts from the CSS example above to control custom JavaScript 
+components as well in Idyll. Check out the [a href:"https://idyll-lang.org/docs/components/custom" target:"_blank"]custom 
+components[/a] page on how to incorporate those into your Idyll document.
