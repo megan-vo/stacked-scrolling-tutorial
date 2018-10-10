@@ -1,13 +1,16 @@
 [meta title:"Stack Scroll" description:"Tutorial on Stacked Scrolling" /]
 
+// TODO: Add code snippets, change bar.png to svg, get rid of huge gray space, mobile screen size
+// can scroll for some reason
 
 [Header
       title:"Smooth Narrative Transitions with Stacked Scrollers"
       subtitle:"A walkthrough"
       author:"Megan Vo"/]
 
+[div className:"text"]
     [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] Scroller component is a useful way to incorporate
-    more narrative structure into an article. This tutorial will focus on how to incorporate **multiple** Scroller components in one Idyll
+    more narrative structure into an article. This tutorial will focus on introducing **multiple** Scroller components in one Idyll
     document to further aid your scrollytelling needs. If you are not familiar with the Idyll's Scrollers, take a peek at this 
     [a href:"https://idyll-lang.org/gallery/scaffolding-interactives" target:"_blank"]tutorial[/a] first. Otherwise, let's get 
     started!
@@ -17,7 +20,7 @@
     ### What are Stacked Scrollers?
     Instead of one Scroller component per document, stacking Scrollers simply translates to 
     declaring multiple Scroller components one after another. This way, each Scroller can be thought of as its own 
-    section with **steps** that can only be controlled by their corresponding parent Scroller.
+    section with **steps** that only it can control.
 
     [br/]
 
@@ -26,83 +29,153 @@
     the smooth transitions between the graphics of the article below.
 
     [figure]
-      [img src:"static/images/fugazi.gif" class:"gif" /]
+      [img src:"static/images/fugazi.gif" className:"gif" /]
       [figcaption]
         [a href:"https://idyll-lang.org/gallery/the-d-i-y-data-of-fugazi" target:"_blank"]The D-I-Y Data of Fugazi[/a]
         by Matthew Conlen. 
       [/figcaption]
     [/figure]
-    It allows the graphics of each Scroller to slide up and replace the previous 
-    graphic on the screen -- and quite easily too. Since each Scroller component only allows 
-    for one graphic, switching between graphics is a bit more difficult and 
+    With stacking, the graphic of each Scroller slides up and replaces the previous 
+    one on the screen -- and quite easily too. Since each Scroller component only allows 
+    for one graphic, switching between them is a bit more difficult and 
     clunky when using just one Scroller.
     
     // Show gif comparison here  
 
-    Perhaps one of the biggest perks is that stacking lets us include multiple animated graphics because each Scroller
+    Perhaps one of the biggest perks is that stacking lets us include multiple animated graphics per document because each Scroller
     controls their **own** set of steps. This also gives us greater customizeability
     in terms of style and functionality since every Scroller has a corresponding **id**.
 
     [br/]
     ### Let's Build Something
-    To get acquainted with stacked scrolling, below is a short example with 
-    code snippets afterward. 
-    For this scrolly example, we only made changes to the **styles.css** and **index.idyll** files.
+    To get acquainted with stacked scrolling, below is a short example of customizing each 
+    of the stacked Scroller components. 
+    For this example, we've only made changes to the **styles.css** and **index.idyll** files. 
+    In the **package.json** file, we have switched to the ```layout: centered``` format for this document.
 
 
-    [img src:"static/images/arrow.svg" class:"arrow"/]
-
-
+    [img src:"static/images/arrow.svg" className:"arrow"/]
+[/div]
+// Scroller Tutorial
 [var name:"barStep" value:0 /]
-
-
 [Scroller currentStep:barStep]
   
-    [Graphic class:"bar"]
+    [Graphic]
         [img src:"static/images/bar.png"
-        class:`barStep < 1 ? "pic" : "pic rotate" + barStep `/]
+        className:`barStep == 0 ? "bar" : "bar rotate" + barStep `/]
     [/Graphic]
 
 
-  [Step id:"firstStep"]
-    The bar on the right belongs to this first Scroller component. Watch how it rotates 
-    as you scroll to the next step.
+  [Step]
+    [p]The bar on the right belongs to this first Scroller component.[/p] 
+    
+    Let's first look at how we can animate **within** a Scroller. Watch how it rotates 
+    as you move to the next step.
   [/Step]
   [Step]
-    [p]We've reached the next step! You can animate a graphic within a particular Scroller based on what step is entered.[/p]
-    You can keep track of the step you are on for a particular scroller by assigning a variable to the 
-    **currentStep** prop of the component.
+    [p]We've reached the next step! You can animate a graphic within a particular Scroller based on what **step** is entered.[/p]
+
+    To keep track of the current step you are in, you can assign a variable to the Scroller's
+    ```currentStep``` prop and tie it to your graphic:
+
+```
+      
+[var name:"barStep" value:0 /]
+[Scroller currentStep:barStep]
+  [Graphic]
+    [img src:"static/images/bar.png" 
+        className:`barStep == 0 ? "bar" : 
+                "bar rotate" + barStep `/]
+  [/Graphic]
+
+  [Step]
+    ...
+  [/Step]
+[/Scroller]
+```
+
+  [/Step]
+
+  [Step]
+     Now we can write some basic transformations in the **style.css** file to reflect the 
+     ```barStep``` prop updates:
+
+    ```
+    .bar {
+      margin-left: 42vw;
+      background: transparent;  
+      width: 25vw;
+      height: 10vh;
+      transition: 400ms linear all;
+}
+
+.rotate1 {
+  transform: rotate(90deg);
+}
+
+.rotate2 {
+  transform: rotate(210deg);
+}
+
+    ```
   [/Step]
 
   [Step]
     [p]But let's say you want to include another graphic. We could stay here on this Scroller but it would 
     get a little messy... [/p]
 
-    Sounds like it's time to **stack**!
+    So let's **stack**!
   [/Step]
 [/Scroller]
 
+// SECOND SCROLLER
 [var name:"circleStep" value:0/]
 [Scroller currentStep:circleStep]
   [Graphic]
-      [img src:"static/images/circle.png"
-      class:`circleStep < 1 ? "pic" : "pic enlarge"`/]
+      [img src:"static/images/circle.svg"
+           className:`circleStep == 0 ? "circle" : "circle enlarge" + circleStep `/]
   [/Graphic]
-  [Step id:"secondStep"]
-    You've reached the second Scroller! Here we've changed the graphic as well as the 
-    **CSS** of the new Scroller. Watch for a different animation as you enter 
-    this one's next step.
+  [Step]
+    [p]Welcome to the second Scroller! Like the first Scroller, we have kept
+    track of the step we're on by passing a different variable to the ```currentStep``` prop: [/p]
+
+    ```
+    // Second Scroller
+[var name:"circleStep" value:0/]
+[Scroller currentStep:circleStep]
+  ...
+[/Scroller]
+    ```
+    
+    Now watch for a different animation as you enter 
+    the next step.
   [/Step]
   [Step]
     [p]
-    Because each Scroller has a unique **id**, we can leverage that to create a diverse set 
-    of customizeable animated graphics. The id format is #idyll-scroll-#, with the first scroller 
-    starting at 0.  [/p]
+    As mentioned previously, each Scroller has a unique **id** as well.[/p] The id format is ```#idyll-scroll-[num] ``` starting at 0.  
     
-    Since this is the second Scroller, we're currently working with #idyll-scroll-1.
+    Since this is the second Scroller, its id is ```#idyll-scroll-1 ```.
+  [/Step]
+
+  [Step]
+    [p]This comes in handy when you want to change the style for a particular Scroller only.[/p]
+    Here, we've changed this graphic's background color in the **style.css**
+    file: 
+
+    ```
+  #idyll-scroll-1 .idyll-scroll-graphic {
+  background: #5BAFC1;
+}
+    ```
+  [/Step]
+
+  [Step]
+    [p]And that's pretty much it![/p] Go ahead and scroll down for full code snippets.
   [/Step]
 [/Scroller]
 
+[br/]
+### Code 
 You'll need the 
     [a href:"https://github.com/idyll-lang/idyll/tree/master/packages/idyll-components/src" target:"_blank"]scroller.js and text-container.js components[/a].
     If you want, you can use the default [a href:"https://github.com/megan-vo/stacked-scrolling-tutorial/tree/master/static/images" target:"_blank"]bar and circle images[/a] as well.
