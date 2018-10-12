@@ -8,7 +8,6 @@
 [div className:"line"][/div]
 [br/]
 
-// TODO: Extra space after last step, make header look more finalized
 [div className:"text"]
     [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] Scroller component is a useful way to incorporate
     more narrative structure into an article. This tutorial will focus on introducing [span className:"emphasize"]multiple Scroller components[/span] in one Idyll
@@ -36,13 +35,11 @@
         by Matthew Conlen. 
       [/figcaption]
     [/figure]
-    With stacking, the graphic of each Scroller slides up and replaces the previous 
+    [p]With stacking, the graphic of each Scroller slides up and replaces the previous 
     one on the screen -- and quite easily too. Since each Scroller component only allows 
     for one graphic, switching between them is a bit more difficult and 
-    clunky when using just one Scroller.
+    clunky when using just one Scroller.[/p]
     
-    // Show gif comparison here  
-
     Perhaps one of the biggest perks is that stacking lets us include multiple animated graphics per document because each Scroller
     controls their *own* set of steps. This also gives us greater customizeability
     in terms of style and functionality since every Scroller has a corresponding [span className:"emphasize"]id[/span].
@@ -54,16 +51,18 @@
     For this example, we've made changes to the [span className:"emphasize"]styles.css[/span] and [span className:"emphasize"]index.idyll[/span] files. 
     Also in the [span className:"emphasize"]package.json[/span] file, we have switched to the ```layout: centered``` format.
 
-
     [img src:"static/images/arrow.svg" className:"arrow"/]
 [/div]
+
+
 // Scroller Tutorial
 [var name:"barStep" value:0 /]
 [Scroller currentStep:barStep]
   
     [Graphic]
+        // Tie barStep to img class
         [img src:"static/images/bar.svg"
-        className:`barStep === 0 ? "bar" : "bar rotate" + barStep `/]
+             className:`barStep === 0 ? "bar" : "bar rotate" + barStep `/]
     [/Graphic]
 
 
@@ -129,6 +128,7 @@
   [/Step]
 [/Scroller]
 
+
 // SECOND SCROLLER
 [var name:"circleStep" value:0/]
 [Scroller currentStep:circleStep]
@@ -178,6 +178,7 @@
 
 [br/]
 
+// Code snippet portion
 [div className:"code"]
 ### Snippets
     If you want to use the code snippets directly, you can use the default [a href:"https://github.com/megan-vo/stacked-scrolling-tutorial/tree/master/static/images" target:"_blank"]bar and circle images[/a] as well.
