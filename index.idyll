@@ -9,8 +9,11 @@
 [br/]
 
 [div className:"text"]
-    [a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] Scroller component is a useful way to incorporate
-    more narrative structure into an article. This tutorial will focus on introducing [span className:"emphasize"]multiple Scroller components[/span] in one Idyll
+    [p][a href:"https://idyll-lang.org/" target:"_blank"]Idyll's[/a] Scroller component is a useful way to incorporate
+    more narrative structure into an article. As its name suggests, it provides a scroll-based presentation layout 
+    that can manipulate graphics upon each "step" that is entered.[/p]
+    
+    This tutorial will focus on introducing [span className:"emphasize"]multiple Scroller components[/span] in one Idyll
     document to further aid your scrollytelling needs. If you are not familiar with Idyll's Scrollers, take a peek at this 
     [a href:"https://idyll-lang.org/gallery/scaffolding-interactives" target:"_blank"]tutorial[/a] first. Otherwise, let's get 
     started!
